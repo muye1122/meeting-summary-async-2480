@@ -1,0 +1,77 @@
+{
+  "meta": {
+    "description": "Fictional callback vectors. No real messaging service is contacted.",
+    "fictional": true,
+    "cipher": "AES-256-CBC",
+    "key_derivation": "Base64(EncodingAESKey + \"=\") -> 32 bytes; IV = first 16 bytes of key",
+    "padding": "PKCS#7 with a 32-byte block",
+    "signature": "SHA1 of sorted(token, timestamp, nonce, ciphertext) joined with no separator"
+  },
+  "config": {
+    "token": "FictionalWeComTokenDemo2026",
+    "encodingAesKey": "zZdOPVj41TXEEST3RLJIrw81Ss9fOUjOVFvz6L2CJmz",
+    "corpId": "wwFictionalCorpDemo001"
+  },
+  "vectors": [
+    {
+      "name": "url_verification_echo",
+      "plaintext": "fictional-url-verification-echo",
+      "receiveid": "",
+      "random_prefix_hex": "00112233445566778899aabbccddeeff",
+      "timestamp": "1770000000",
+      "nonce": "f1e2d3c4b5a6",
+      "expected": {
+        "ciphertext": "HVGUgAci+yFV3krRKY+CMlPifSBKh5moz7MzSYDKepTsbxlyv+FTmQRRXynspogq0igd0e6G4xoNtquoVFcpyQ==",
+        "signature": "1469183782100118af6e3e8db36d1787534e9f17"
+      }
+    },
+    {
+      "name": "change_contact_event",
+      "plaintext": "<xml><ToUserName><![CDATA[wwFictionalReceiver]]></ToUserName><FromUserName><![CDATA[member-alice-001]]></FromUserName><CreateTime>1770000001</CreateTime><MsgType><![CDATA[event]]></MsgType><Event><![CDATA[change_contact]]></Event><ChangeType><![CDATA[add_user]]></ChangeType><UserID><![CDATA[member-bob-002]]></UserID><Name><![CDATA[虚构成员]]></Name></xml>",
+      "receiveid": "wwFictionalCorpDemo001",
+      "random_prefix_hex": "ffeeddccbbaa99887766554433221100",
+      "timestamp": "1770000001",
+      "nonce": "a1b2c3d4e5f6",
+      "expected": {
+        "ciphertext": "x4lcTQEFDGnnvCyKbOIHoW9CsxEqWPFv443uUOwqruZKmIFUZiCbWIG4hXI4A60iH1lz9TsWu4wP44IockNKstnN64HUtl7B/bVZssl9XaNU4KmYRYoqZZgl8vMXxtISmqGP/Ceo7sKuh+WEZVFljD/9k/3c8zpp2UHr+Vuz2kJIkUCzZAE9NsEyBQCo8HgyPj0pXurBMTkRZLaznjNVzTtaZqQIgFUeohtcR6oJJMpXceuFsfPUjFhKObYCuQ+lWF4VWkkOIU3bEJKg88q2RVWhm2BpmPZCb5MmtMNQXQ7JTroetkaIWgPr+3F7qNwSOd+Ur48qNk1F4JXhldQFyCpfsD+sxG7DyWSQWoh0PfgNrOo6fevs4acGlZUbjKs+i3zn7kwjhxMq5nZlY+XhOZYhZLl3Y/W3miyNHtrMAYBOWWleTuSGQPe+d0mE8dzhpEjf5bJOx170JgsVBaNggeubjWvtt5PxZIf8fqic4qt0y4/q0oyyqHVjLRfK+sj2sfkoubvzpmrXLPeNaOs6jJj9Dmnq33mTWaRwrCIJFDQ=",
+        "signature": "f47343599bb841768aadc9eb60111fba1be3950b"
+      }
+    },
+    {
+      "name": "add_external_contact_event",
+      "plaintext": "<xml><ToUserName><![CDATA[wwFictionalReceiver]]></ToUserName><FromUserName><![CDATA[member-alice-001]]></FromUserName><CreateTime>1770000002</CreateTime><MsgType><![CDATA[event]]></MsgType><Event><![CDATA[add_external_contact]]></Event><UserID><![CDATA[member-alice-001]]></UserID><ExternalUserID><![CDATA[external-forest-009]]></ExternalUserID><State><![CDATA[demo-state]]></State></xml>",
+      "receiveid": "wwFictionalCorpDemo001",
+      "random_prefix_hex": "0102030405060708090a0b0c0d0e0f10",
+      "timestamp": "1770000002",
+      "nonce": "b2c3d4e5f6a7",
+      "expected": {
+        "ciphertext": "XK8i+qeh8Z9TJYQfDYai4TevcYBkmxn7rq0raXlLwihVAvH+PP63hHHkgWQHm78b/hUwhNTZzUjC70poST7kIQeFGjaeMhH9CMOi1p3KjTZUNyquUq/hV/pgNiHdeVraScDMM5nIwYv4LN/O9UpKhNJoBHCgvh4Jhq/8KlGOZFEETTHNvEc1fiOcOZATPMpEJZE/c/tZwLSe9xqnh/d2YxLTO/KtngBbL3hMETJwyaP7rj9VqENchWSbaMuREGT7StUDIrZFm+Ou3sBbXFKEU9cPTtBtr07le0xm3J9LAIAr970lLckwV0r7q6kgRGsia96otXxagZpz73amefyTeYACQpFDjP5Ahb6w5NWHCknGj/ZCa4t7OmcGqhgHiSWBZFTTypNwB5jJRfCbbpoSpQZfUMURlp9tdeeAxBbZtiWh+9BEcatOikgT+kXVUajlrUzBF45sk3WWtKBQvuHs7nOrp/5dvg1K6OqZENP7to7K4ji/q/LqaHla1oU5VM1a72Sm3EzeQif4M5gDbtv27OEHEFOwPGY2kK/weHaO2TW+hjbyZOB0i8Js9p7hmRL3SpqkTNqVazNq6e3bBsL4ug==",
+        "signature": "8c695cb7970b05486a0a5a5535b1d2c0077a2742"
+      }
+    },
+    {
+      "name": "del_external_contact_event",
+      "plaintext": "<xml><ToUserName><![CDATA[wwFictionalReceiver]]></ToUserName><FromUserName><![CDATA[member-alice-001]]></FromUserName><CreateTime>1770000003</CreateTime><MsgType><![CDATA[event]]></MsgType><Event><![CDATA[del_external_contact]]></Event><UserID><![CDATA[member-alice-001]]></UserID><ExternalUserID><![CDATA[external-forest-009]]></ExternalUserID></xml>",
+      "receiveid": "wwFictionalCorpDemo001",
+      "random_prefix_hex": "101112131415161718191a1b1c1d1e1f",
+      "timestamp": "1770000003",
+      "nonce": "c3d4e5f6a7b8",
+      "expected": {
+        "ciphertext": "FdQvkzqh6E/qxIU7rlcCOf1U/p4kB7uOdwTYWXop3EvT4oJ8az6LwpmE03QlCnvLOAgjym3hdkbTjXSPUMHih43dKLtWkkKhnWWVmOtMesxSKoMogZFs6ZhqGxqj9Ry8xVpAqi4gEKVPAQ4phulojVxqkzUajLPBQYl78WiqYT7pebLY5LZIu4gqAkI3LLwtRHlSwn0nHpcEBRz8nvTG2NEX/YPxt0RG1bhDRgV8y5vXZU5e03kSJZCpV2EFHWQ2opC7kJYQ7vvsNck6/wuM2Lh40ew8cQbDPje1j6Q92ZX3l6vTDY3ry3ySVzZM0/ex98YmqhOjNLWzQLVeWtR6J5XEtW9nhjq25mb5P9ZHzKcZy1qyPjB0MlMg5YVM7j7kLNhfBneA5DDBY18AREIBfJnK1oYWWNyfyEecM3OlModxRa4ipTmFr1lZVjJqlkQpgnd6maz1RRd/BY5Rtjqc699Ce1cABfxlYgSpM7W0MZ9RV5OYOHzwtEeMZ1z8NL/Pq7PFJyw0DP3eJYLmFb6RncL55SC2roGTdXgPkqWIPaQ=",
+        "signature": "85e4be8880721ec5531e9dc6b2b184a48f5ca938"
+      }
+    },
+    {
+      "name": "edit_external_contact_event",
+      "plaintext": "<xml><ToUserName><![CDATA[wwFictionalReceiver]]></ToUserName><FromUserName><![CDATA[member-alice-001]]></FromUserName><CreateTime>1770000004</CreateTime><MsgType><![CDATA[event]]></MsgType><Event><![CDATA[edit_external_contact]]></Event><UserID><![CDATA[member-alice-001]]></UserID><ExternalUserID><![CDATA[external-forest-009]]></ExternalUserID><State><![CDATA[updated-state]]></State></xml>",
+      "receiveid": "wwFictionalCorpDemo001",
+      "random_prefix_hex": "202122232425262728292a2b2c2d2e2f",
+      "timestamp": "1770000004",
+      "nonce": "d4e5f6a7b8c9",
+      "expected": {
+        "ciphertext": "rSpyQFfXxOdBy7Ac3JsJO+Bc8KNIw0Q8MUHnBz7+aDVR8MdJ1RZN9j/gp8PcI2MdZzupZOM/1Cap09ZyAjABvIPrJfuUfFcyqMWYThPMw19Ef5qdwoYALzRQbUEepouos66u4wy3Jv4b5/hVBt1T2mnC4kZR4sJ8rPv/uILpJicKVxBcqqS095Ab55aP9W86Y3u53DFtCJ1XukrvHDv0bb1SpPQzrTJyP4U+XbxP+5R4NRaHlzYZLtvvt+0I5yRk0nKdz6bN1KZa9Q+7HiWELMKnyyA0q/Fk7Ff4rMlvN+BB7eKex0O90kAeI7dHt3FOUptmmO+QgqkK6pgOrg52EE5hP6a4kcyGriehy9jKLRIIMnqHDWO0nxm01n/Td5Al9oItMRCzrv+luR4yeYjAy+ceCksl93BbQNFZHJXnAQkVI2ttSO7tyrqw+HGwo/4IAoXg8nGpihoovk3O2QXZlfqMRpN1WLPtHAmUoVFPQdQhbNCo5yZ6GMAE+6mG+CgNSdFpgpSfSY0+6QcW4Ya/Fx9I0fRRUt42nqf9X/AIB4U7y0V1sb1rixhAlSdruw/0l59R93pFmeUw+bejD+2Z5A==",
+        "signature": "d7f36f27621b38812db8269e7ed2bee1e5d48947"
+      }
+    }
+  ]
+}

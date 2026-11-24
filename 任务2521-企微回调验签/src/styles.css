@@ -1,0 +1,29 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: -apple-system, "Segoe UI", "Microsoft YaHei", sans-serif; color: #0f172a; background: #f1f5f9; }
+.app { max-width: 1180px; margin: 0 auto; padding: 18px; }
+header { display: flex; justify-content: space-between; align-items: center; background: #0f172a; color: #f8fafc; padding: 16px 22px; border-radius: 12px; }
+.brand { display: flex; align-items: center; gap: 14px; }
+.logo { display: inline-flex; width: 44px; height: 44px; border-radius: 10px; background: #2563eb; align-items: center; justify-content: center; font-size: 22px; font-weight: 700; }
+h1 { font-size: 20px; margin: 0; }
+header p { margin: 4px 0 0; color: #94a3b8; font-size: 13px; }
+.meta { font-size: 12px; color: #cbd5e1; }
+nav { display: flex; gap: 8px; margin: 16px 0; flex-wrap: wrap; }
+nav button { padding: 9px 18px; border: 1px solid #cbd5e1; background: #fff; border-radius: 8px; cursor: pointer; font-size: 14px; }
+nav button.active { background: #2563eb; color: #fff; border-color: #2563eb; }
+main { display: flex; flex-direction: column; gap: 14px; }
+.panel { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px 18px; box-shadow: 0 1px 2px rgba(15,23,42,.04); }
+.panel h3 { margin: 0 0 10px; font-size: 16px; }
+.tiny { color: #64748b; font-size: 12px; line-height: 1.7; }
+.controls { display: flex; flex-wrap: wrap; gap: 10px; align-items: end; margin: 10px 0; }
+.controls label { display: flex; flex-direction: column; gap: 4px; font-size: 12px; color: #475569; }
+.controls input, .controls select { padding: 7px 9px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 13px; font-family: inherit; }
+button { padding: 8px 14px; border: 1px solid #cbd5e1; background: #fff; border-radius: 7px; cursor: pointer; font-size: 13px; }
+button:hover { border-color: #94a3b8; }
+button:disabled { opacity: .6; cursor: wait; }
+button.primary { background: #2563eb; color: #fff; border-color: #2563eb; }
+.result { margin-top: 10px; padding: 10px 12px; background: #eff6ff; border-left: 3px solid #2563eb; border-radius: 6px; font-size: 13px; }
+table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 8px; }
+th, td { text-align: left; padding: 7px 9px; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+th { background: #f8fafc; color: #475569; font-weight: 600; }
+.mono { font-family: ui-monospace, Consolas, monospace; font-size: 11px; word-break: break-all; }
+footer { margin-top: 18px; padding: 12px; text-align: center; color: #94a3b8; font-size: 12px; }

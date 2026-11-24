@@ -1,0 +1,27 @@
+{
+  "name": "quote-approval-flow",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Quotation approval workflow API with tier routing, step-by-step approvals, SHA-256 snapshot guards and timed reminders. Express mock API + React demo.",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0 --port 5173",
+    "mock": "node mock-server/index.js",
+    "dev:all": "concurrently -k \"npm:mock\" \"npm:dev\"",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0 --port 4173",
+    "test": "playwright test"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.2",
+    "vite": "^6.0.7"
+  },
+  "license": "MIT"
+}

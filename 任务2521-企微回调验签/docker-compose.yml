@@ -1,0 +1,20 @@
+services:
+  callback-poc:
+    build: .
+    ports:
+      - "4173:4173"
+      - "3001:3001"
+    environment:
+      PORT: "3001"
+      H5_PORT: "4173"
+      NODE_ENV: "production"
+      # Fictional demo fallbacks only. Supply real values through the host
+      # environment for any non-demo deployment; the app reads env vars only.
+      WECOM_TOKEN: "${WECOM_TOKEN:-FictionalWeComTokenDemo2026}"
+      WECOM_ENCODING_AES_KEY: "${WECOM_ENCODING_AES_KEY:-zZdOPVj41TXEEST3RLJIrw81Ss9fOUjOVFvz6L2CJmz}"
+      WECOM_CORP_ID: "${WECOM_CORP_ID:-wwFictionalCorpDemo001}"
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://127.0.0.1:3001/api/wecom/health',r=>process.exit(r.statusCode===200?0:1)).on('error',()=>process.exit(1))"]
+      interval: 10s
+      timeout: 3s
+      retries: 5

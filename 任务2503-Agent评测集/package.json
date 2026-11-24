@@ -1,0 +1,23 @@
+{
+  "name": "agent-eval-suite",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Runnable evaluation suite and safety red-line tests for a minimal agent runtime. Synthetic fictional data only.",
+  "scripts": {
+    "eval": "node eval/run.js",
+    "eval:mode": "node eval/run.js --mode",
+    "start": "node server.js",
+    "test": "node --test tests/eval.test.js",
+    "test:e2e": "playwright test",
+    "verify": "npm run eval && npm test && npm run test:e2e"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "vite": "^6.0.7"
+  },
+  "license": "MIT"
+}

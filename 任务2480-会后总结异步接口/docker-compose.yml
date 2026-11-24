@@ -1,0 +1,11 @@
+services:
+  app:
+    build: .
+    ports:
+      - "4173:4173"
+      - "3001:3001"
+    environment:
+      - PORT=3001
+      - H5_PORT=4173
+    stdin_open: false
+    tty: false
